@@ -23,7 +23,7 @@ public class Print
 
     public static void example2() {
         // Errors: missing semi-colon, missing quotation, indentation incorrect
-        System.out.println("I" + "am" + "not" + "spacing things correctly.");
+        System.out.println("I " + "am " + "not " + "spacing things correctly.");
         System.out.println("I will correct this sentence above.");
         System.out.println("I will correct the sentences below.");
         System.out.print("First Name: ");
