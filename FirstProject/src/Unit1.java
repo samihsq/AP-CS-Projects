@@ -21,16 +21,15 @@ public class Unit1
     {
         final double PI = 3.14;
 
-        System.out.print("Radius of circle? (Integer): ");
-        String tempradius = kb.nextLine();
-        int radius = Integer.parseInt(tempradius);
+        System.out.println("Please enter the radius [int] of a circle: ");
+        int radius = kb.nextInt();
 
         double area = (PI) * (radius * radius);
 
-        System.out.print("This is the area: ");
+        System.out.print("The area of a circle with a radius of " + radius + " is: ");
         System.out.printf("%.02f", area);
 
-        System.out.println();
+        System.out.println(".");
     }
 
     // [Problem 02 - Hot Dog]
@@ -41,23 +40,22 @@ public class Unit1
         double hotDogPrice = 2.50;
         double tax = 0.1025;
 
-        System.out.print("Number of hot dogs: ");
-        String hotDogString = kb.nextLine();
-        int hotDogNumber = Integer.parseInt(hotDogString);
+        System.out.println("One hot dog is $2.50. Please enter the number of hot dogs you want to buy: ");
+        int hotDogNumber = kb.nextInt();
 
         double calcHotDog = hotDogNumber * hotDogPrice;
         double calcTax = calcHotDog * tax;
         double total = calcHotDog + calcTax;
 
-        System.out.print("The price for " + hotDogNumber + " hot dogs is: $");
+        System.out.print("Pretax cost: $");
         System.out.printf("%.02f", calcHotDog);
         System.out.println();
 
-        System.out.print("The tax would be: $");
+        System.out.print("Tax: $");
         System.out.printf("%.02f", calcTax);
         System.out.println();
 
-        System.out.print("The total price (including tax) would be: $");
+        System.out.print("Final cost : $");
         System.out.printf("%.02f", total);
         System.out.println();
 
@@ -68,7 +66,12 @@ public class Unit1
     // and it will be converted to the temperature Celsius (rounded to the nearest numbers)
     public static void hotStuff()
     {
-        // Your own code here.
+        System.out.println("Please enter a temperature (int) greater or equal to 32 in Fahrenheit: " );
+        int temperature = kb.nextInt();
+
+        double celsius = ( (double) 5 / 9) * (temperature - 32) + 0.5;
+
+        System.out.println(temperature + " degrees Fahrenheit is " + (int) celsius + " degrees Celsius.");
     }
 
     // [Problem 04 - Dream Team]
@@ -76,14 +79,45 @@ public class Unit1
     // and how many players are left without a team.
     public static void dreamTeam()
     {
-        // Your own code here.
+        System.out.println("Please enter a number of players to divide into teams: ");
+        int students = kb.nextInt();
+
+        int teams = students / 6;
+        int leftover = students % 6;
+
+        System.out.println("We can make " + teams + " teams of six with " + leftover + " players left over.");
+
     }
 
     // [Problem 05 - Loose Change]
     // This takes in an integer in cents and give you the least coin combinations.
     public static void looseChange()
     {
-        // Your own code here.
+        System.out.println("Please enter a number of cents to divide into change:");
+        int cents = kb.nextInt();
+
+        int quarters = cents / 25;
+        cents -= quarters * 25;
+
+        int dimes = cents / 10;
+        cents -= dimes * 10;
+
+        int nickels = cents / 5;
+        cents -= nickels * 5;
+
+        int pennies = cents;
+
+        System.out.println("Your change is:");
+
+        System.out.println("Quarters: " + quarters);
+
+        System.out.println("Dimes: " + dimes);
+
+        System.out.println("Nickels: " + nickels);
+
+        System.out.println("Pennies: " + pennies);
+
+        System.out.println("Total: " + (quarters * 25 + dimes * 10 + nickels * 5 + pennies) + " cents");
     }
 
     public static void main(String[] args)
