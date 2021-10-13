@@ -15,38 +15,44 @@ public class Unit1
 {
     private static Scanner kb = new Scanner(System.in);
 
-    // [Problem 01 - Calculate an Area for a Circle]
-    // A user enters the radius (int) for the circle and it prints the area of the circle (double).
     public static void circleArea()
     {
+
+        // Value of pi set as a final (can't be changed)
         final double PI = 3.14;
 
+        // Asks for input using Scanner
         System.out.println("Please enter the radius [int] of a circle: ");
         int radius = kb.nextInt();
 
+        // Formula to find the area of the circle
         double area = (PI) * (radius * radius);
 
+        // Prints out calculated area with %.02f formatting
         System.out.print("The area of a circle with a radius of " + radius + " is: ");
         System.out.printf("%.02f", area);
 
         System.out.println(".");
     }
 
-    // [Problem 02 - Hot Dog]
-    // This calculates the total cost for # of hot dogs a user wants to buy, including tax.
-    // Tax rate is 10.25%.
+
     public static void hotDog()
     {
+
+        // Set hotDogPrice and tax prices (using camelCase)
         double hotDogPrice = 2.50;
         double tax = 0.1025;
 
+        // Asks for input using Scanner
         System.out.println("One hot dog is $2.50. Please enter the number of hot dogs you want to buy: ");
         int hotDogNumber = kb.nextInt();
 
+        // Uses camelCase for variables, calculates using hotDogPrice + tax variables
         double calcHotDog = hotDogNumber * hotDogPrice;
         double calcTax = calcHotDog * tax;
         double total = calcHotDog + calcTax;
 
+        // Prints out calculated values, using %.02f formatting
         System.out.print("Pretax cost: $");
         System.out.printf("%.02f", calcHotDog);
         System.out.println();
@@ -61,52 +67,62 @@ public class Unit1
 
     }
 
-    // [Problem 03 - Hot Stuff]
-    // A user will enter a temperature (int) in Fahrenhei
-    // and it will be converted to the temperature Celsius (rounded to the nearest numbers)
+
     public static void hotStuff()
     {
+
+        // Asks for input using Scanner
         System.out.println("Please enter a temperature (int) greater or equal to 32 in Fahrenheit: " );
         int temperature = kb.nextInt();
 
+        // Uses casting (double) to convert
         double celsius = ( (double) 5 / 9) * (temperature - 32) + 0.5;
 
+        // Prints celsius in int format using casting
         System.out.println(temperature + " degrees Fahrenheit is " + (int) celsius + " degrees Celsius.");
     }
 
-    // [Problem 04 - Dream Team]
-    // This puts players into a team of 6 and tells you how many teams it makes
-    // and how many players are left without a team.
+
     public static void dreamTeam()
     {
+
+        // Asks for input using Scanner
         System.out.println("Please enter a number of players to divide into teams: ");
         int students = kb.nextInt();
 
+        // Calculates using modulo and division
         int teams = students / 6;
         int leftover = students % 6;
 
+        // Prints out calculated values
         System.out.println("We can make " + teams + " teams of six with " + leftover + " players left over.");
 
     }
 
-    // [Problem 05 - Loose Change]
-    // This takes in an integer in cents and give you the least coin combinations.
+
     public static void looseChange()
     {
+
+        // Asks for input using Scanner
         System.out.println("Please enter a number of cents to divide into change:");
         int cents = kb.nextInt();
 
+        // Divides using values of coins (quarter: 25)
         int quarters = cents / 25;
         cents -= quarters * 25;
 
+        // Divides using dime value: 10
         int dimes = cents / 10;
         cents -= dimes * 10;
 
+        // Divides using nickel value: 5
         int nickels = cents / 5;
         cents -= nickels * 5;
 
+        // Uses remaining amount as pennies
         int pennies = cents;
 
+        // Prints out number of each type sequentially
         System.out.println("Your change is:");
 
         System.out.println("Quarters: " + quarters);
@@ -117,6 +133,7 @@ public class Unit1
 
         System.out.println("Pennies: " + pennies);
 
+        // Multiplying each type of coin by their value to reiterate the value of the coins
         System.out.println("Total: " + (quarters * 25 + dimes * 10 + nickels * 5 + pennies) + " cents");
     }
 
