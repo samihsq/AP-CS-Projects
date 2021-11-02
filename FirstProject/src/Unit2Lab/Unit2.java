@@ -1,4 +1,13 @@
-package Unit2Lab;
+/**
+ * Unit2.java
+ *
+ * @author - Samih Qureshi
+ * @author - Period 3
+ * @author - Id 10023090
+ *
+ * @author - I received help from nobody.
+ *
+ */
 
 import java.util.Locale;
 
@@ -27,24 +36,28 @@ public class Unit2 {
         // random grade set between 0 and 100 for all Student instances
         SnowWhite.setGrade((int)(Math.random()*101));
 
+        // GAFE + random name for HumptyDumpty
         String HumptyDumptyFirst = HumptyDumpty.getFirstName();
         String HumptyDumptyLast = HumptyDumpty.getLastName();
         String HumptyDumptyIdString = String.valueOf(HumptyDumpty.getStudentID());
         String HumptyDumptyGAFE = (HumptyDumptyFirst.substring(0, 3) + HumptyDumptyLast.substring(0,3) + HumptyDumptyIdString.substring(HumptyDumptyIdString.length()-3)).toLowerCase();
         HumptyDumpty.setGrade((int)(Math.random()*101));
 
+        // GAFE + random name for PrinceCharming
         String PrinceCharmingFirst = PrinceCharming.getFirstName();
         String PrinceCharmingLast = PrinceCharming.getLastName();
         String PrinceCharmingIdString = String.valueOf(PrinceCharming.getStudentID());
         String PrinceCharmingGAFE = (PrinceCharmingFirst.substring(0, 3) + PrinceCharmingLast.substring(0,3) + PrinceCharmingIdString.substring(PrinceCharmingIdString.length()-3)).toLowerCase();
         PrinceCharming.setGrade((int)(Math.random()*101));
 
+        // GAFE + random name for SleepingBeauty
         String SleepingBeautyFirst = SleepingBeauty.getFirstName();
         String SleepingBeautyLast = SleepingBeauty.getLastName();
         String SleepingBeautyIdString = String.valueOf(SleepingBeauty.getStudentID());
         String SleepingBeautyGAFE = (SleepingBeautyFirst.substring(0, 3) + SleepingBeautyLast.substring(0,3) + SleepingBeautyIdString.substring(SleepingBeautyIdString.length()-3)).toLowerCase();
         SleepingBeauty.setGrade((int)(Math.random()*101));
 
+        // GAFE + random name for HennyPenny
         String HennyPennyFirst = HennyPenny.getFirstName();
         String HennyPennyLast = HennyPenny.getLastName();
         String HennyPennyIdString = String.valueOf(HennyPenny.getStudentID());
@@ -54,11 +67,11 @@ public class Unit2 {
 
         System.out.println();
         // printing attributes for all Student instances, including GAFE and randomized grade
-        System.out.println("Name: " + SnowWhite.getName() + "\t ID: " + SnowWhite.getStudentID() + "\t GAFE: " + SnowWhiteGAFE + "\t Grade: " + SnowWhite.getGrade());
-        System.out.println("Name: " + HumptyDumpty.getName() + "\t ID: " + HumptyDumpty.getStudentID() + "\t GAFE: " + HumptyDumptyGAFE + "\t Grade: " + HumptyDumpty.getGrade());
-        System.out.println("Name: " + PrinceCharming.getName() + "\t ID: " + PrinceCharming.getStudentID() + "\t GAFE: " + PrinceCharmingGAFE + "\t Grade: " + PrinceCharming.getGrade());
-        System.out.println("Name: " + SleepingBeauty.getName() + "\t ID: " + SleepingBeauty.getStudentID() + "\t GAFE: " + SleepingBeautyGAFE + "\t Grade: " + SleepingBeauty.getGrade());
-        System.out.println("Name: " + HennyPenny.getName() + "\t ID: " + HennyPenny.getStudentID() + "\t GAFE: " + HennyPennyGAFE + "\t Grade: " + HennyPenny.getGrade());
+        System.out.println("Name: " + SnowWhite.getName() + "\tID: " + SnowWhite.getStudentID() + "\tGAFE: " + SnowWhiteGAFE + "\tGrade: " + SnowWhite.getGrade());
+        System.out.println("Name: " + HumptyDumpty.getName() + "\tID: " + HumptyDumpty.getStudentID() + "\tGAFE: " + HumptyDumptyGAFE + "\tGrade: " + HumptyDumpty.getGrade());
+        System.out.println("Name: " + PrinceCharming.getName() + "\tID: " + PrinceCharming.getStudentID() + "\tGAFE: " + PrinceCharmingGAFE + "\tGrade: " + PrinceCharming.getGrade());
+        System.out.println("Name: " + SleepingBeauty.getName() + "\tID: " + SleepingBeauty.getStudentID() + "\tGAFE: " + SleepingBeautyGAFE + "\tGrade: " + SleepingBeauty.getGrade());
+        System.out.println("Name: " + HennyPenny.getName() + "\tID: " + HennyPenny.getStudentID() + "\tGAFE: " + HennyPennyGAFE + "\tGrade: " + HennyPenny.getGrade());
 
         System.out.println();
 
@@ -67,17 +80,23 @@ public class Unit2 {
         // average calculated by dividing total by total students (5)
         double average = total / 5.0;
 
-        // variance calculated through finding absolute value of all differences of grade and average, then squaring the whole thing
-        double variance = Math.pow(Math.abs(SnowWhite.getGrade() - average) + Math.abs(HumptyDumpty.getGrade() - average) + Math.abs(PrinceCharming.getGrade() - average) + Math.abs(SleepingBeauty.getGrade() - average) + Math.abs(HennyPenny.getGrade() - average), 2) / 5;
+        // variance calculated through squaring all the differences of the grade and average (squaring is always positive number so no Math.abs() needed)
+        double variance = (Math.pow(SnowWhite.getGrade() - average, 2) + Math.pow(HumptyDumpty.getGrade() - average, 2) + Math.pow(PrinceCharming.getGrade() - average, 2) + Math.pow(SleepingBeauty.getGrade() - average, 2) + Math.pow(HennyPenny.getGrade() - average, 2)) / 5;
         // standard deviation calculated through the square root of the variance
         double standev = Math.sqrt(variance);
 
         // all calculated values printed
         System.out.println("Total: " + total);
-        System.out.println("Average: " + average);
+        System.out.print("Average: ");
+        // formatted all values (except total, which is int) with %.2f formatting
+        System.out.printf("%.2f", average);
         System.out.println();
-        System.out.println("Variance: " + variance);
-        System.out.println("Standard deviation: " + standev);
+        System.out.print("Variance: ");
+        System.out.printf("%.2f", variance);
+        System.out.println();
+        System.out.print("Standard deviation: ");
+        System.out.printf("%.2f", standev);
+
 
 
     }

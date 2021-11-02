@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="493ff161-eee0-443a-a209-cd3fa2c87e2d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FirstProject/src/Unit1.java" beforeDir="false" afterPath="$PROJECT_DIR$/FirstProject/src/Unit1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FirstProject/src/Unit2Lab/Unit2.java" beforeDir="false" afterPath="$PROJECT_DIR$/FirstProject/src/Unit2Lab/Unit2.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +36,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
-  <component name="RunManager" selected="Application.Unit1">
+  <component name="RunManager" selected="Application.Unit2">
     <configuration name="Arithmetic" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Arithmetic" />
       <module name="AP-CS-Projects" />
@@ -58,8 +58,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Unit2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Unit2Lab.Unit2" />
+      <module name="AP-CS-Projects" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Unit2Lab.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Unit2" />
         <item itemvalue="Application.Unit1" />
         <item itemvalue="Application.FirstClass" />
         <item itemvalue="Application.Arithmetic" />
