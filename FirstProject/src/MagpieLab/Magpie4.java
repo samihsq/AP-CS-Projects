@@ -1,13 +1,17 @@
+package MagpieLab;
+
+/**
+ * Magpie4.java for Lab #7
+ *
+ * @author - Samih Qureshi
+ * @author - Period 3
+ * @author - Id 10023090
+ *
+ * @author - I received help from nobody.
+ *
+ */
 
 public class Magpie4 {
-
-    /**
-     * Magpie2.java
-     * Thie magpie will take user input from keyboard.
-     *
-     * KC 11/07/2020 modified from CSAwesome.
-     *
-     */
 
     // Greeting
     public String getGreeting()
@@ -19,12 +23,18 @@ public class Magpie4 {
     public String getResponse(String statement)
     {
         String response = "";
+
+        // statement trimmed to remove empty spaces, used for empty response
         statement = statement.trim();
+
+        // Responds with "Why so negative?" when statement "no" or "not" entered
         if (findKeyword(statement,"no", 0) >= 0
                 || findKeyword(statement,"not", 0) >= 0)
         {
             response = "Why so negative?";
         }
+
+        // Responds with "Tell me more about your family." when family member entered
         else if (findKeyword(statement,"mother", 0) >= 0
                 || findKeyword(statement,"father", 0) >= 0
                 || findKeyword(statement,"sister", 0) >= 0
@@ -32,21 +42,38 @@ public class Magpie4 {
         {
             response = "Tell me more about your family.";
         }
+
+        // Responds with "Tell me more about your pet" when "cat" or "dog" entered
         else if (findKeyword(statement, "cat", 0) >= 0
                 || findKeyword(statement, "dog", 0) >= 0) {
             response = "Tell me more about your pet";
-        } else if (statement.equals("")) {
+        }
+
+        // Responds with "Say something please" when nothing is entered
+        else if (statement.equals("")) {
             response = "Say something please";
-        } else if (findKeyword(statement,"sunny", 0) >= 0
+        }
+
+        // Responds with "The weather is nice where I am!" when "sunny" or "rainy" is entered
+        else if (findKeyword(statement,"sunny", 0) >= 0
                 || findKeyword(statement,"rainy", 0) >= 0) {
             response = "The weather is nice where I am!";
-        } else if (findKeyword(statement,"English", 0) >= 0
+        }
+
+        // Responds with "It looks like you go to school." when "English" or "math" is entered
+        else if (findKeyword(statement,"English", 0) >= 0
                 || findKeyword(statement,"math", 0) >= 0) {
             response = "It looks like you go to school.";
-        } else if (findKeyword(statement,"basketball", 0) >= 0
-                || findKeyword(statement,"baseball", 0) >= 0) {
+        }
+
+        // Responds with "I love every type of sport" when "basketball", "baseball", or "football" is entered
+        else if (findKeyword(statement,"basketball", 0) >= 0
+                || findKeyword(statement,"baseball", 0) >= 0
+                || findKeyword(statement,"football", 0) >= 0) {
             response = "I love every type of sport.";
         }
+
+        // Responds with a random response if no other if statement is successful
         else
         {
             response = getRandomResponse();
@@ -57,10 +84,12 @@ public class Magpie4 {
     // Canned random responses if the program doesn't have a good response.
     private String getRandomResponse()
     {
+        // random number created to choose a random response
         final int NUMBER_OF_RESPONSES = 10;
         int randomNum = (int)(Math.random() * NUMBER_OF_RESPONSES);
         String response = "";
 
+        // 10 different noncommittal responses created when the program doesn't know what to say
         if (randomNum == 0)
         {
             response = "Interesting, tell me more.";
