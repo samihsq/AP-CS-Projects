@@ -1,4 +1,3 @@
-package LoopsLab8;
 
 /**
  * Unit4.java - Lab for Unit 4 to practice while/for loops
@@ -22,14 +21,16 @@ public class Loops
         palindromeWord("computer");
         checkerBoard(4);
         checkerBoard(7);
-        /*
         diamond(3);
         diamond(5);
+
         xmasTree(5);
         xmasTree(7);
+
         birthdayCake(3, 4);
         birthdayCake(5, 3);
-        verbalArithmetic();*/
+
+        verbalArithmetic();
     }
 
     // Task 1 - print multiplication table starting at 1 to n
@@ -129,11 +130,18 @@ public class Loops
 
         for(int row = 0; row < n; row++) {
             for(int x = 0; x < n; x++) {
-                if (x % 2 != 0)
-                if (x % 2 == 0) {
-                    System.out.print("*");
+                if (row % 2 == 0) {
+                    if ((x % 2 == 0)) {
+                        System.out.print("*");
+                    } else {
+                        System.out.print("_");
+                    }
                 } else {
-                    System.out.print("_");
+                    if ((x % 2 == 0)) {
+                        System.out.print("_");
+                    } else {
+                        System.out.print("*");
+                    }
                 }
             }
             System.out.println();
@@ -149,6 +157,44 @@ public class Loops
 
         // Write your implementation below
 
+        int y = 1;
+        int z = 1;
+        int space = 1;
+
+        space = n - 1;
+
+        for (y = 1; y<=n; y++)
+        {
+            for (z = 1; z<=space; z++) {
+                System.out.print(" ");
+            }
+
+            space--;
+
+            for (z = 1; z<= 2*y-1; z++) {
+                System.out.print("*");
+            }
+
+            System.out.println();
+        }
+
+        space = 1;
+
+        for (y = 1; y<= n - 1; y++)
+        {
+            for (z = 1; z<= space; z++) {
+                System.out.print(" ");
+            }
+
+            space++;
+
+            for (z = 1 ; z<= 2*(n-y)-1; z++) {
+                System.out.print("*");
+            }
+
+            System.out.println();
+        }
+
     }
 
     // Task 6 - print a letter Christmas tree
@@ -158,6 +204,41 @@ public class Loops
         System.out.println("xmasTree(" + n + ")");
 
         // Write your implementation below
+
+        int y = 1;
+        int z = 1;
+        int space = 1;
+        char letter = 97;
+
+        space = n - 1;
+
+        for (y = 1; y<=n; y++)
+        {
+            for (z = 1; z<=space; z++) {
+                System.out.print(" ");
+            }
+
+            space--;
+
+            for (z = 1; z<= 2*y-1; z++) {
+                if (z > y) {
+                    letter--;
+                    System.out.print(letter);
+                } else {
+                    System.out.print(letter);
+                    letter++;
+                    if (z == y) {
+                        letter--;
+                    }
+
+                }
+
+            }
+
+            letter = 97;
+
+            System.out.println();
+        }
 
     }
 
@@ -171,7 +252,70 @@ public class Loops
 
         // Write your implementation below
 
-    }
+        int y = 1;
+        int z = 1;
+        int space = 1;
+        char letter = 97;
+
+        space = (radius * layer * 2) - (2 * y * radius);
+
+        for (y = 0; y<layer; y++)
+        {
+
+            space = (radius * layer) - (y * radius) - 3;
+
+            //inital spaces
+            for (z = 1; z<=space; z++) {
+                System.out.print(" ");
+            }
+
+            //top layer
+            System.out.print("+");
+
+            for (z = 1; z<= radius + (2 * y * radius); z++) {
+                System.out.print("-");
+            }
+
+            System.out.println("+");
+
+
+
+            //middle layer
+
+            for (z = 1; z<=space; z++) {
+                System.out.print(" ");
+            }
+            System.out.print("|");
+
+            for (z = 1; z<= radius + (2 * y * radius); z++) {
+                System.out.print(" ");
+            }
+
+            System.out.println("|");
+
+
+
+            // bottom layer
+
+            for (z = 1; z<=space; z++) {
+                System.out.print(" ");
+            }
+            System.out.print("+");
+
+            for (z = 1; z<= radius + (2 * y * radius); z++) {
+                System.out.print("-");
+            }
+
+            System.out.println("+");
+
+
+
+        }
+
+        }
+
+
+
 
     // Task 8 - verbal arithmetic
     // Find the number that satisfied the following multiplication.
@@ -186,6 +330,49 @@ public class Loops
         System.out.println("verbalArithmetic()");
 
         // Write your implementation below
+
+        int counter = 0;
+
+        String stringNumber = "";
+
+        char a, b, c, d, e, eOfI;
+
+
+        for(int i = 111111; i <= 999999; i += 111111) {
+            for(int divisor = 2; divisor <= 9; divisor++) {
+                int val = i / divisor;
+                if (i % divisor == 0 && val <= 99999) {
+                    stringNumber = String.valueOf(val);
+                    eOfI = (String.valueOf(i)).charAt(5);
+                    a = stringNumber.charAt(0);
+                    b = stringNumber.charAt(1);
+                    c = stringNumber.charAt(2);
+                    d = stringNumber.charAt(3);
+                    e = stringNumber.charAt(4);
+
+                    if (a != b && a != c && a != d && a != e) {
+                        if (b != c && b != d && b != e) {
+                            if (c != d && c != e) {
+                                if (d != e) {
+                                    if (e == eOfI) {
+                                        System.out.println("     " + val);
+                                        System.out.println("  X      " + divisor);
+                                        System.out.println("------------");
+                                        System.out.println("    " + i);
+                                        System.out.println("The total # of loops: " + counter);
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+
+                counter++;
+
+        }
 
     }
 
