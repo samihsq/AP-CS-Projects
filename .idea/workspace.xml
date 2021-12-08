@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="493ff161-eee0-443a-a209-cd3fa2c87e2d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/FirstProject/src/LoopsLab8/Loops.java" beforeDir="false" afterPath="$PROJECT_DIR$/FirstProject/src/LoopsLab8/Loops.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FirstProject/src/TeddyBearInventory/TeddyBearInventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +43,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
-  <component name="RunManager" selected="Application.Loops">
+  <component name="RunManager" selected="Application.Store">
     <configuration name="FindKeywordTrace" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="MagpieLab.FindKeywordTrace" />
       <module name="AP-CS-Projects" />
@@ -82,9 +83,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Unit1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Unit1" />
+    <configuration name="Store" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="TeddyBearInventory.Store" />
       <module name="AP-CS-Projects" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="TeddyBearInventory.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -104,11 +111,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Store" />
         <item itemvalue="Application.Loops" />
         <item itemvalue="Application.MagpieRunner" />
         <item itemvalue="Application.FindKeywordTrace" />
         <item itemvalue="Application.Unit2" />
-        <item itemvalue="Application.Unit1" />
       </list>
     </recent_temporary>
   </component>
