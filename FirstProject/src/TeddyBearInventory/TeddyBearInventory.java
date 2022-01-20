@@ -1,3 +1,4 @@
+package TeddyBearInventory;
 
 /**
  * TeddyBearInventory.java - Lab for 5.19 (Lab #9)
