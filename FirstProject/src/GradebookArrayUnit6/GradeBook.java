@@ -124,19 +124,25 @@ public class GradeBook
         // Use enhanced for-loop for arrays here
         // Call printStudentRecord in Student.java to print.
 
+//        for(Student i:students) {
+//            // goes through all the data and prints
+//            System.out.print(i.getName() + "\t");
+//            System.out.print(i.getID() + "\t");
+//            System.out.print(i.getGradeLevel() + "\t");
+//            double[] scores = i.getScoresArray();
+//            double avg = 0;
+//            // goes through scores array and prints out each value
+//            for(double indiv:scores) {
+//                avg += indiv;
+//                System.out.print(indiv + "\t");
+//            }
+//            System.out.println(avg/scores.length);
+//        }
         for(Student i:students) {
-            System.out.print(i.getName() + "\t");
-            System.out.print(i.getID() + "\t");
-            System.out.print(i.getGradeLevel() + "\t");
-            double[] scores = i.getScoresArray();
-            double avg = 0;
-            for(double indiv:scores) {
-                avg += indiv;
-                System.out.print(indiv + "\t");
-            }
-            System.out.print(avg/scores.length);
-            System.out.println();
+            i.printStudentRecord();
         }
+
+        System.out.println();
 
     }
 
@@ -147,20 +153,24 @@ public class GradeBook
         // Use enhanced for-loop to traverse the students array
         // to get the class total for each score.
 
-
-
             // Print class average for each score and then a grand average at the end.
         // All fields are seperated by a tab (\t).
         System.out.print("Class Average\t\t\t" );
+        // total is for the current score and fullTotal is for all scores
         double total = 0;
+        double fullTotal = 0;
         double len = students[0].getScoresArray().length;
         for(int i = 0; i < len; i++) {
             total = 0;
             for (Student student : students) {
+                // increments both total and fullTotal
                 total += student.getScoresArray()[i];
+                fullTotal += student.getScoresArray()[i];
             }
             System.out.print(total/students.length + "\t");
         }
+
+        System.out.println(fullTotal/(students.length*len));
 
         System.out.println();
     }
@@ -179,40 +189,48 @@ public class GradeBook
         // Use enhanced for-loop for arrays here
         // Call printStudentRecordDropLowest in Student.java.
 
-        int counter = 0;
-        int index = 0;
-        double lowest = 100;
-        for(Student student:students) {
-            for(double grade:student.getScoresArray()) {
-                if (grade < lowest) {
-                    lowest = grade;
-                    index = counter;
-                }
-                counter++;
-            }
-        }
 
+
+//        for(Student i:students) {
+//            // goes through all student data
+//            System.out.print(i.getName() + "\t");
+//            System.out.print(i.getID() + "\t");
+//            System.out.print(i.getGradeLevel() + "\t");
+//            double[] scores = i.getScoresArray();
+//            // creating variables for score manipulation
+//            double avg = 0;
+//            int cnt = 0;
+//            double val = 0;
+//            int counter = 0;
+//            int index = 0;
+//            double lowest = 100;
+//
+//            for(double grade:i.getScoresArray()) {
+//                // calculating the lowest grade through less than statement
+//                if (grade < lowest) {
+//                    lowest = grade;
+//                    index = counter;
+//                }
+//                counter++;
+//            }
+//            for(double indiv:scores) {
+//                avg += indiv;
+//                // if the lowest value is found, print a star next to it
+//                if (cnt == index) {
+//                    val = indiv;
+//                    System.out.print(indiv + "*\t");
+//                } else {
+//                    System.out.print(indiv + "\t");
+//                }
+//                cnt++;
+//            }
+//            System.out.print(avg/scores.length + "\t");
+//            // calculate the modified average by removing the lowest score and reducing the divisor by 1
+//            System.out.println((avg-val)/(scores.length - 1) + "\t");
+//
+//        }
         for(Student i:students) {
-            System.out.print(i.getName() + "\t");
-            System.out.print(i.getID() + "\t");
-            System.out.print(i.getGradeLevel() + "\t");
-            double[] scores = i.getScoresArray();
-            double avg = 0;
-            int cnt = 0;
-            double val = 0;
-            for(double indiv:scores) {
-                avg += indiv;
-                if (cnt == index) {
-                    val = indiv;
-                    System.out.print(indiv + "*\t");
-                } else {
-                    System.out.print(indiv + "\t");
-                }
-                cnt++;
-            }
-            System.out.print(avg/scores.length + "\t");
-            System.out.println((avg-val)/scores.length - 1 + "\t");
-
+            i.printStudentRecordDropLowest();
         }
 
     }

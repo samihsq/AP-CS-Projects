@@ -37,7 +37,9 @@ public class Student
         name = data[0];
         ID = data[1];
         GL = Integer.parseInt(data[2]);
+
         for(int i = 3; i < data.length; i++) {
+            // need to subtract by 3 because data starts at the index of 3, but our scores array starts at 0
             scores[i-3] = Double.parseDouble(data[i]);
         }
 
@@ -111,12 +113,14 @@ public class Student
         // to print scores.
 
         String scoreStr = "";
-        int avg = 0;
+        double avg = 0;
 
         for(double score : scores) {
             scoreStr += score + "\t";
             avg += score;
         }
+
+        avg = avg/scores.length;
 
         System.out.println(name + "\t" + ID + "\t" + GL + "\t" + scoreStr + avg);
     }
@@ -127,24 +131,40 @@ public class Student
     // The dropped score will have a * next to it
     public void printStudentRecordDropLowest()
     {
-        String scoreStr = "";
-        double total = 0;
 
-        for(double score : scores) {
-            scoreStr += score + "\t";
-            total += score;
-        }
+            // creating variables for score manipulation
+            double avg = 0;
+            int cnt = 0;
+            double val = 0;
+            int counter = 0;
+            int index = 0;
+            double lowest = 100;
 
-        double oldAvg = total/scores.length;
+            String scoreStr = "";
 
-        double lowest = 100;
-        for(double grade:scores) {
-            if (grade < lowest) {
-                lowest = grade;
+            for(double grade:scores) {
+                // calculating the lowest grade through less than statement
+                if (grade < lowest) {
+                    lowest = grade;
+                    index = counter;
+                }
+                counter++;
             }
-        }
+            for(double indiv:scores) {
+                avg += indiv;
+                // if the lowest value is found, print a star next to it
+                if (cnt == index) {
+                    val = indiv;
+                    scoreStr += indiv + "*\t";
+                } else {
+                    scoreStr += indiv + "\t";
+                }
+                cnt++;
+            }
 
-        double newAvg = ((total-lowest)/(scores.length-1));
+            double oldAvg = avg/scores.length;
+            // calculate the modified average by removing the lowest score and reducing the divisor by 1
+            double newAvg = (avg-val)/(scores.length - 1);
 
         System.out.println(name + "\t" + ID + "\t" + GL + "\t" +
                 scoreStr + oldAvg + "\t" + newAvg);
