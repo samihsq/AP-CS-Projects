@@ -3,7 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="493ff161-eee0-443a-a209-cd3fa2c87e2d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FirstProject/src/TeddyBearInventory/TeddyBearInventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/FirstProject/src/TeddyBearInventory/TeddyBearInventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FirstProject/src/GradebookArrayUnit6/GradeBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/FirstProject/src/GradebookArrayUnit6/GradeBook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FirstProject/src/GradebookArrayUnit6/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/FirstProject/src/GradebookArrayUnit6/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FirstProject/src/unit7lab/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/FirstProject/src/unit7lab/Card.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FirstProject/src/unit7lab/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/FirstProject/src/unit7lab/Deck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FirstProject/src/unit7lab/Hand.java" beforeDir="false" afterPath="$PROJECT_DIR$/FirstProject/src/unit7lab/Hand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FirstProject/src/unit7lab/PlaycardRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/FirstProject/src/unit7lab/PlaycardRunner.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,20 +49,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
-  <component name="RunManager" selected="Application.GradeBook">
-    <configuration name="FindKeywordTrace" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="MagpieLab.FindKeywordTrace" />
-      <module name="AP-CS-Projects" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="MagpieLab.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.PlaycardRunner">
     <configuration name="GradeBook" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="GradebookArrayUnit6.GradeBook" />
       <module name="AP-CS-Projects" />
@@ -97,6 +89,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PlaycardRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="unit7lab.PlaycardRunner" />
+      <module name="AP-CS-Projects" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="unit7lab.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Store" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="TeddyBearInventory.Store" />
       <module name="AP-CS-Projects" />
@@ -112,11 +117,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.PlaycardRunner" />
         <item itemvalue="Application.GradeBook" />
         <item itemvalue="Application.Store" />
         <item itemvalue="Application.Loops" />
         <item itemvalue="Application.MagpieRunner" />
-        <item itemvalue="Application.FindKeywordTrace" />
       </list>
     </recent_temporary>
   </component>

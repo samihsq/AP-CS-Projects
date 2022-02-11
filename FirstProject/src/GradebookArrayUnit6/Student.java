@@ -1,4 +1,4 @@
-//package GradebookArrayUnit6;
+package GradebookArrayUnit6;
 
 /**
  * Student.java
@@ -166,7 +166,6 @@ public class Student
             // calculate the modified average by removing the lowest score and reducing the divisor by 1
             double newAvg = (avg-val)/(scores.length - 1);
 
-        System.out.println(name + "\t" + ID + "\t" + GL + "\t" +
-                scoreStr + oldAvg + "\t" + newAvg);
+            System.out.println(name + "\t" + ID + "\t" + GL + "\t" + scoreStr + oldAvg + "\t" + newAvg);
     }
 }

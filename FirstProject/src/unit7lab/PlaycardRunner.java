@@ -1,4 +1,3 @@
-package unit7lab;
 
 /**
  * PlaycardRunner.java
@@ -20,8 +19,9 @@ public class PlaycardRunner
     public static void main(String[] args)
     {
         // Create a new Deck
-
+        Deck deck = new Deck();
         // Create a new Hand for a player
+        Hand hand = new Hand();
 
         // Create some cards and add them to the deck.
         // Test cases (DO NOT CHANGE)
@@ -39,7 +39,7 @@ public class PlaycardRunner
         deck.addCard(new Card("Ace", "Hearts"));
 
         // Shuffle the deck and print each card in the deck out
-
+        deck.shuffle();
         System.out.println("Deck after shuffled...");
         System.out.println(deck);
 
@@ -51,9 +51,10 @@ public class PlaycardRunner
         {
             System.out.println("Hand draws a card from the deck...");
             // Draw a card from the deck and add it to the hand
-
+            Card card = deck.draw();
             // Print out the card in hand
             System.out.println("Draw: " + card + "\n");
+            hand.addCard(card);
         }
 
         // Print out the deck again and the hand to verify
@@ -61,7 +62,7 @@ public class PlaycardRunner
         System.out.println(hand);
 
         // Sort cards in hand and print out to verify
-
+        hand.sort();
         System.out.println("Hand sorted");
         System.out.println(hand);
     }
