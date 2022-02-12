@@ -2,18 +2,12 @@
 /**
  * PlaycardRunner.java
  *
- * @author - K Chang
- * @since 03/2021
- * Modified from Mr. May's lab
+ * @author - Samih Qureshi
+ * @author - Period 3
+ * @author - Id 10023090
  *
- * 12/2021 Add sort method in Hand class
- *
- * This is the lab for unit 7 to practice ArrayList.
- * It will use 3 classes: Card, Deck, and Hand (in another file)
- * This runner program makes a new deck, a new hand, and add cards to the deck.
- * It shuffles the deck and the hand draws cards from the deck.
- * It uses string printing to show the result.
  */
+
 public class PlaycardRunner
 {
     public static void main(String[] args)

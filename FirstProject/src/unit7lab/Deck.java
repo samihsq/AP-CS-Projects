@@ -1,4 +1,13 @@
 
+/**
+ * Deck.java
+ *
+ * @author - Samih Qureshi
+ * @author - Period 3
+ * @author - Id 10023090
+ *
+ */
+
 import java.util.ArrayList;
 
 public class Deck {
@@ -9,17 +18,17 @@ public class Deck {
     }
 
     public Card draw() {
-        return deck.remove(deck.size()-1);
+        return deck.remove(0);
     }
 
     public void shuffle() {
         Card temp;
+        // shuffles through relatively random shuffling,
         for(int i = 0; i < deck.size(); i++) {
             for(int j = 0; j < deck.size(); j++) {
-                int val = Math.abs(deck.size()-(i+j)/2);
-                if (val > deck.size()-1) {
-                    val /= 2;
-                }
+                // calculates with Math.random(), gives random index
+                int val = (int)(Math.random()*deck.size());
+                // moves items around with temp
                 temp = deck.get(val);
                 deck.remove(val);
                 deck.add(temp);
@@ -29,9 +38,10 @@ public class Deck {
 
     public String toString() {
         if (deck.size() == 0) {
-            return "Deck is empty!";
+            return "Deck is Empty!\n";
         }
         String toStr = "Deck:\n";
+        // outputs the deck by getting each of the card's .toString() values and concatenating them to an outputted string
         for(int i = 0; i < deck.size();i++){
             toStr += deck.get(i).toString() + "\n";
         }

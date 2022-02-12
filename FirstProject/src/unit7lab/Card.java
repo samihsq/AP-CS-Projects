@@ -1,4 +1,13 @@
 
+/**
+ * Card.java
+ *
+ * @author - Samih Qureshi
+ * @author - Period 3
+ * @author - Id 10023090
+ *
+ */
+
 public class Card {
     String value;
     String suit;
@@ -6,6 +15,7 @@ public class Card {
     public Card(String value, String suit) {
         this.suit = suit;
         this.value = value;
+        // constructor sets order based off integer unless it is a string value
         if(value.equals("Ace")) {
             order = 1;
         } else if (value.equals("Jack")) {
@@ -32,6 +42,7 @@ public class Card {
     }
 
     public String toString() {
+        // toString returns string below
         return value + " of " + suit;
     }
 
