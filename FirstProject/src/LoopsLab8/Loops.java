@@ -341,7 +341,7 @@ public class Loops
     //         EEEEEE
     public static void verbalArithmetic()
     {
-        System.out.println("\n[Task 8 - Verbal Arithmetic]");
+        System.out.println("\n[Task 8 - Verbal randomstuff.Arithmetic]");
         System.out.println("verbalArithmetic()");
 
         // Write your implementation below
