@@ -5,9 +5,12 @@ import java.awt.image.BufferedImage;
  * A class that represents a picture.  This class inherits from 
  * SimplePicture and allows the student to add functionality to
  * the Picture class.  
- * 
- * @author Barbara Ericson ericson@cc.gatech.edu
- */
+ *
+ * @author - Samih Qureshi
+ * @author - Period 3
+ * @author - Id 10023090
+ *
+ * */
 public class Picture extends SimplePicture 
 {
   ///////////////////// constructors //////////////////////////////////
@@ -248,6 +251,96 @@ public class Picture extends SimplePicture
       }
     }
   }
+
+  public void mirrorArms(){
+    Pixel[][] pixels = this.getPixels2D();
+    int mirrorPoint = 90;
+    Pixel topPixel = null;
+    Pixel bottomPixel = null;
+    int height = pixels.length;
+    // copied certain rows and mirrored to create 4 arms
+    for (int row = 162; row < 192; row++)
+    {
+      for (int col = 0; col < pixels[0].length; col++)
+      {
+        bottomPixel = pixels[row][col];
+        topPixel = pixels[height - 1 - row + mirrorPoint][col];
+        topPixel.setColor(bottomPixel.getColor());
+      }
+    }
+  }
+
+  public void mirrorGull()
+  {
+    int mirrorPoint = 350;
+    Pixel leftPixel = null;
+    Pixel rightPixel = null;
+    int count = 0;
+    Pixel[][] pixels = this.getPixels2D();
+
+    // loop through the rows
+    // row and col values create a "rectangle" around the gull that is mirrored
+    for (int row = 225; row < 330; row++)
+    {
+      // loop from 13 to just before the mirror point
+      for (int col = 225; col < mirrorPoint; col++)
+      {
+
+        leftPixel = pixels[row][col];
+        rightPixel = pixels[row]
+                [mirrorPoint - col + mirrorPoint];
+        rightPixel.setColor(leftPixel.getColor());
+      }
+    }
+  }
+
+  public void copy(Picture fromPic,
+                   int startRow, int startCol, int fromSR, int fromER, int fromSC, int fromEC)
+  {
+    Pixel fromPixel = null;
+    Pixel toPixel = null;
+    Pixel[][] toPixels = this.getPixels2D();
+    Pixel[][] fromPixels = fromPic.getPixels2D();
+    // changed by replacing the 0s with the fromSR and fromER
+    for (int fromRow = fromSR, toRow = startRow;
+         // replaced fromPixels.length with fromER/fromEC
+         fromRow < fromER &&
+                 toRow < toPixels.length;
+         fromRow++, toRow++)
+    {
+      for (int fromCol = fromSC, toCol = startCol;
+           fromCol < fromEC &&
+                   toCol < toPixels[0].length;
+           fromCol++, toCol++)
+      {
+        fromPixel = fromPixels[fromRow][fromCol];
+        toPixel = toPixels[toRow][toCol];
+        toPixel.setColor(fromPixel.getColor());
+      }
+    }
+  }
+
+  public void myCollage()
+  {
+    // creating own collage
+    Picture img1 = new Picture("C:\\Users\\thami\\OneDrive\\Documents\\GitHub\\AP-CS-Projects\\FirstProject\\src\\blue-mark-small.jpg");
+    Picture img2 = new Picture("C:\\Users\\thami\\OneDrive\\Documents\\GitHub\\AP-CS-Projects\\FirstProject\\src\\femaleLionAndHall-small.jpg");
+    // copying all images
+    this.copy(img1,0,0);
+    this.copy(img2,120,0);
+    Picture img2NoRed = new Picture(img2);
+    // creating and copying modification #1
+    img2NoRed.keepOnlyBlue();
+    this.copy(img2NoRed,240,0);
+    // creating and copying modification #2
+    Picture img1negate = new Picture(img1);
+    img1negate.negate();
+    this.copy(img1negate,360,0);
+    // mirroring
+    this.mirrorVertical();
+    this.write("C:\\Users\\thami\\OneDrive\\Documents\\GitHub\\AP-CS-Projects\\FirstProject\\src\\collage.jpg");
+  }
+
   
   /** copy from the passed fromPic to the
     * specified startRow and startCol in the
@@ -280,22 +373,25 @@ public class Picture extends SimplePicture
     }   
   }
 
+
+
+
   /** Method to create a collage of several pictures */
   public void createCollage()
-  {
-    Picture flower1 = new Picture("flower1.jpg");
-    Picture flower2 = new Picture("flower2.jpg");
-    this.copy(flower1,0,0);
-    this.copy(flower2,100,0);
-    this.copy(flower1,200,0);
-    Picture flowerNoBlue = new Picture(flower2);
-    flowerNoBlue.zeroBlue();
-    this.copy(flowerNoBlue,300,0);
-    this.copy(flower1,400,0);
-    this.copy(flower2,500,0);
-    this.mirrorVertical();
-    this.write("collage.jpg");
-  }
+{
+  Picture flower1 = new Picture("flower1.jpg");
+  Picture flower2 = new Picture("flower2.jpg");
+  this.copy(flower1,0,0);
+  this.copy(flower2,100,0);
+  this.copy(flower1,200,0);
+  Picture flowerNoBlue = new Picture(flower2);
+  flowerNoBlue.zeroBlue();
+  this.copy(flowerNoBlue,300,0);
+  this.copy(flower1,400,0);
+  this.copy(flower2,500,0);
+  this.mirrorVertical();
+  this.write("collage.jpg");
+}
   
   
   /** Method to show large changes in color 

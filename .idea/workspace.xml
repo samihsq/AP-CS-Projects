@@ -2,13 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="493ff161-eee0-443a-a209-cd3fa2c87e2d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/FirstProject/src/blue-mark-small.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FirstProject/src/femaleLionAndHall-small.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FirstProject/src/GradebookArrayUnit6/GradeBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/FirstProject/src/GradebookArrayUnit6/GradeBook.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FirstProject/src/GradebookArrayUnit6/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/FirstProject/src/GradebookArrayUnit6/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FirstProject/src/unit7lab/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/FirstProject/src/unit7lab/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FirstProject/src/unit7lab/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/FirstProject/src/unit7lab/Deck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FirstProject/src/unit7lab/Hand.java" beforeDir="false" afterPath="$PROJECT_DIR$/FirstProject/src/unit7lab/Hand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FirstProject/src/unit7lab/PlaycardRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/FirstProject/src/unit7lab/PlaycardRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FirstProject/src/Picture.java" beforeDir="false" afterPath="$PROJECT_DIR$/FirstProject/src/Picture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FirstProject/src/PictureTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/FirstProject/src/PictureTester.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AP-CS-Projects/production/AP-CS-Projects/Arithmetic.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AP-CS-Projects/production/AP-CS-Projects/Casting.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AP-CS-Projects/production/AP-CS-Projects/Loops.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AP-CS-Projects/production/AP-CS-Projects/Loops.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AP-CS-Projects/production/AP-CS-Projects/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AP-CS-Projects/production/AP-CS-Projects/Unit1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AP-CS-Projects/production/AP-CS-Projects/guessingGame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AP-CS-Projects/production/AP-CS-Projects/testing.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AP-CS-Projects/production/AP-CS-Projects/unit7lab/Card.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AP-CS-Projects/production/AP-CS-Projects/unit7lab/Card.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AP-CS-Projects/production/AP-CS-Projects/unit7lab/Deck.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AP-CS-Projects/production/AP-CS-Projects/unit7lab/Deck.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AP-CS-Projects/production/AP-CS-Projects/unit7lab/Hand.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AP-CS-Projects/production/AP-CS-Projects/unit7lab/Hand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AP-CS-Projects/production/AP-CS-Projects/unit7lab/PlaycardRunner.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AP-CS-Projects/production/AP-CS-Projects/unit7lab/PlaycardRunner.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,13 +52,19 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/FirstProject/src" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
-  <component name="RunManager" selected="Application.PlaycardRunner">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\thami\OneDrive\Documents\GitHub\AP-CS-Projects\FirstProject\src" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.PictureTester">
     <configuration name="GradeBook" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="GradebookArrayUnit6.GradeBook" />
       <module name="AP-CS-Projects" />
@@ -76,15 +91,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MagpieRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="MagpieLab.MagpieRunner" />
+    <configuration name="PictureTester" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="PictureTester" />
       <module name="AP-CS-Projects" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="MagpieLab.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -117,11 +126,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.PictureTester" />
         <item itemvalue="Application.PlaycardRunner" />
         <item itemvalue="Application.GradeBook" />
         <item itemvalue="Application.Store" />
         <item itemvalue="Application.Loops" />
-        <item itemvalue="Application.MagpieRunner" />
       </list>
     </recent_temporary>
   </component>

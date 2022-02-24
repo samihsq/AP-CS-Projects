@@ -1,10 +1,13 @@
 /**
  * This class contains class (static) methods
- * that will help you test the Picture class 
+ * that will help you test the Picture class
  * methods.  Uncomment the methods and the code
  * in the main to test.
+ *
+ * @author - Samih Qureshi
+ * @author - Period 3
+ * @author - Id 10023090
  * 
- * @author Barbara Ericson 
  */
 public class PictureTester
 {
@@ -50,7 +53,7 @@ public class PictureTester
   }
 
 
-  
+
   /** Method to test mirrorVertical */
   public static void testMirrorVertical()
   {
@@ -83,7 +86,7 @@ public class PictureTester
     caterpillar.mirrorHorizontalBotToTop();
     caterpillar.explore();
   }
-  
+
   /** Method to test mirrorTemple */
   public static void testMirrorTemple()
   {
@@ -92,15 +95,33 @@ public class PictureTester
     temple.mirrorTemple();
     temple.explore();
   }
-  
+
+  public static void testMirrorArms()
+  {
+    Picture snowman = new Picture("C:\\Users\\thami\\OneDrive\\Documents\\GitHub\\AP-CS-Projects\\FirstProject\\src\\snowman.jpg");
+    snowman.explore();
+    snowman.mirrorArms();
+    snowman.explore();
+  }
+
+  public static void testMirrorGull()
+  {
+    Picture temple = new Picture("C:\\Users\\thami\\OneDrive\\Documents\\GitHub\\AP-CS-Projects\\FirstProject\\src\\seagull.jpg");
+    temple.explore();
+    temple.mirrorGull();
+    temple.explore();
+  }
+
   /** Method to test the collage method */
   public static void testCollage()
   {
-    Picture canvas = new Picture("640x480.jpg");
-    canvas.createCollage();
+    Picture canvas = new Picture("C:\\Users\\thami\\OneDrive\\Documents\\GitHub\\AP-CS-Projects\\FirstProject\\src\\640x480.jpg");
+    Picture gorge = new Picture("C:\\Users\\thami\\OneDrive\\Documents\\GitHub\\AP-CS-Projects\\FirstProject\\src\\gorge.jpg");
+    canvas.copy(gorge,100,190,23,250,0,200);
+    canvas.myCollage();
     canvas.explore();
   }
-  
+
   /** Method to test edgeDetection */
   public static void testEdgeDetection()
   {
@@ -108,7 +129,7 @@ public class PictureTester
     swan.edgeDetection(10);
     swan.explore();
   }
-  
+
   /** randomstuff.Main method for randomstuff.testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
@@ -123,15 +144,15 @@ public class PictureTester
 //    testNegate();
 //    testGrayscale();
 //    testFixUnderwater();
-    testMirrorVertical();
-    testMirrorVerticalRightToLeft();
-    testMirrorHorizontal();
-    testMirrorHorizontalBotToTop();
+//    testMirrorVertical();
+//    testMirrorVerticalRightToLeft();
+//    testMirrorHorizontal();
+//    testMirrorHorizontalBotToTop();
     //testMirrorTemple();
-    //testMirrorArms();
+//    testMirrorArms();
     //testMirrorGull();
     //testMirrorDiagonal();
-    //testCollage();
+    testCollage();
     //testCopy();
     //testEdgeDetection();
     //testEdgeDetection2();
