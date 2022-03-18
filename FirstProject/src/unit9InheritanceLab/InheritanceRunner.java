@@ -1,11 +1,11 @@
-package unit9InheritanceLab;
 
 import java.util.ArrayList;
 /**
- * InheritanceRunner.java
+ * InheritanceRunner.java - Unit 9 Lab
  *
- * @author - K Chang
- * @since 02/2022
+ * @author - Samih Qureshi
+ * @author - Period 3
+ * @author - Id 10023090
  *
  * This is the lab for unit 9 to practice inheritance.
  *
@@ -283,6 +283,12 @@ public class InheritanceRunner
         // Add different shape objects to the list.
         // The first one is done for you as an example.
         list1.add(p2);
+        list1.add(rm2);
+        list1.add(r2);
+        list1.add(s2);
+        list1.add(t2);
+        list1.add(e2);
+        list1.add(c2);
 
         // Print out the list
         System.out.println("The list has " + list1.size() + " objects.");
@@ -310,12 +316,26 @@ public class InheritanceRunner
         ArrayList<Shape> list2 = new ArrayList<Shape>();
 
         // Declare new variables in Shape datatype.
+
         // Make new objects in child class.
         // Then add them to the list of Shape type.
         // The first one is done for you as an example.
-        Shape p3 = new Parallelogram();
+        Shape parallelogram = new Parallelogram();
+        Shape rhombus = new Rhombus();
+        Shape rectangle = new Rectangle();
+        Shape square = new Square();
+        Shape triangle = new Triangle();
+        Shape ellipse = new Ellipse();
+        Shape circle = new Circle();
 
-        list2.add(p3);
+        list2.add(parallelogram);
+        list2.add(rhombus);
+        list2.add(rectangle);
+        list2.add(square);
+        list2.add(triangle);
+        list2.add(ellipse);
+        list2.add(circle);
+
 
         System.out.println("\nThe list has " + list2.size() + " objects.");
         for (Shape obj: list2)
