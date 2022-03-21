@@ -1,3 +1,4 @@
+package unit8lab;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -226,9 +227,9 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
   private void setUpNextAndPreviousButtons()
   {
     // create the image icons for the buttons
-    Icon prevIcon = new ImageIcon(DigitalPicture.class.getResource("leftArrow.gif"), 
+    Icon prevIcon = new ImageIcon(DigitalPicture.class.getResource("unit8lab/leftArrow.gif"),
                                   "previous index");
-    Icon nextIcon = new ImageIcon(DigitalPicture.class.getResource("rightArrow.gif"), 
+    Icon nextIcon = new ImageIcon(DigitalPicture.class.getResource("unit8lab/rightArrow.gif"),
                                   "next index");
     // create the arrow buttons
     colPrevButton = new JButton(prevIcon);
@@ -800,7 +801,7 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
    */
   public static void main( String args[])
   {
-    Picture pix = new Picture("beach.jpg");
+    Picture pix = new Picture("unit8lab/beach.jpg");
     pix.explore();
   }
   

@@ -1,3 +1,5 @@
+package unit8lab;
+
 /**
  * This class contains class (static) methods
  * that will help you test the Picture class
@@ -90,7 +92,7 @@ public class PictureTester
   /** Method to test mirrorTemple */
   public static void testMirrorTemple()
   {
-    Picture temple = new Picture("temple.jpg");
+    Picture temple = new Picture("unit8lab/temple.jpg");
     temple.explore();
     temple.mirrorTemple();
     temple.explore();
@@ -125,7 +127,7 @@ public class PictureTester
   /** Method to test edgeDetection */
   public static void testEdgeDetection()
   {
-    Picture swan = new Picture("swan.jpg");
+    Picture swan = new Picture("unit8lab/swan.jpg");
     swan.edgeDetection(10);
     swan.explore();
   }

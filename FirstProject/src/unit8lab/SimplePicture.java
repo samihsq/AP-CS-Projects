@@ -1,3 +1,5 @@
+package unit8lab;
+
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.awt.*;

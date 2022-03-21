@@ -1,3 +1,5 @@
+package unit8lab;
+
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import java.io.*;
@@ -105,7 +107,7 @@ public class FileChooser
     // try to find the images directory
       try {
         // get the URL for where we loaded this class 
-        Class currClass = Class.forName("FileChooser");
+        Class currClass = Class.forName("unit8lab.FileChooser");
         URL classURL = currClass.getResource("FileChooser.class");
         URL fileURL = new URL(classURL,"../images/");
         directory = fileURL.getPath();

@@ -1,3 +1,5 @@
+package unit8lab;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.*;
@@ -114,8 +116,8 @@ public class ImageDisplay extends JPanel implements Scrollable
    * @param direction neg is up or left and pos is right or down
    * @return the unit increment for arrow clicks
    */
-  public int getScrollableUnitIncrement(Rectangle visibleRect, 
-                                        int orientation, 
+  public int getScrollableUnitIncrement(Rectangle visibleRect,
+                                        int orientation,
                                         int direction)
   { return 1; }
   
@@ -126,8 +128,8 @@ public class ImageDisplay extends JPanel implements Scrollable
    * @param direction neg is up or left and pos is right or down
    * @return the block increment for clicking in scroll area
    */
-  public int getScrollableBlockIncrement(Rectangle visibleRect, 
-                                         int orientation, 
+  public int getScrollableBlockIncrement(Rectangle visibleRect,
+                                         int orientation,
                                          int direction)
   {
     return 10;

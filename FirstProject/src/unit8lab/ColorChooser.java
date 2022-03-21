@@ -1,3 +1,5 @@
+package unit8lab;
+
 import javax.swing.JColorChooser;
 import javax.swing.JFrame;
 import java.awt.Color;
