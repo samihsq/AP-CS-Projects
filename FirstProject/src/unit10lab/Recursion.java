@@ -1,4 +1,4 @@
-package unit10lab;
+//package unit10lab;
 
 /**
  * Recursion.java
@@ -203,18 +203,18 @@ public class Recursion {
             return 1;
         }
         else {
-            return n + sumNumbers(n);
+            return n + sumNumbers(n-1);
         }
     }
 
     // #2 Add all digits of a given number n
     public static int sumDigits(int n)
     {
+        int val = (n % 10);
         if (n / 10 == 0) {
-            return 0;
+            return val;
         }
         else {
-            int val = (n % 10);
             return val + sumDigits(n/10);
         }
     }
@@ -222,6 +222,9 @@ public class Recursion {
     // #3/#4 Reverse a given string
     public static String reverseString(String str)
     {
+        if (str.length() <= 0) {
+            return "";
+        }
         String val = str.substring(str.length()-1);
         if (val.equals("")) {
             return val;
@@ -233,44 +236,64 @@ public class Recursion {
     // Two approaches.  Only implement one of the following 3 methods.
     // Can also "cheat" by treating it as a string!
     // Method 1 - concatenate as a string while doing % and / as a number
-    public static String reverseDigits2(int n)
-    {
-        if (n/10 == 0) {
-            return "";
-        }
-        int val = n % 10;
-        return val + reverseDigits2(n/10);
-    }
+//    public static String reverseDigits2(int n)
+//    {
+//        int val = n % 10;
+//        if (n/10 == 0) {
+//            return Integer.toString(val);
+//        }
+//        return val + reverseDigits2(n/10);
+//    }
 
     // Treat n as a string and utilize the reverseString method in #3
-    public static String reverseDigits1(int n)
+    public static String reverseDigits(int n)
     {
         return reverseString(Integer.toString(n));
     }
 
     // Method 2 - treat n as a number.
     // You need to print one digit out each time in this method.
-    public static void reverseDigits(int n)
-    {
-        if (n/10 == 0) {
-            System.out.print("");
-        }
-        else {
-            System.out.print(n%10);
-            reverseDigits(n/10);
-        }
-
-    }
+//    public static void reverseDigits(int n)
+//    {
+//        if (n/10 == 0) {
+//            System.out.print(n%10);
+//        }
+//        else {
+//            System.out.print(n%10);
+//            reverseDigits(n/10);
+//        }
+//
+//    }
 
     // #6 Convert a decimal numberto a binary number
+    static boolean done = false;
+    static int pow;
     public static void binary(int num)
     {
-        if (num == 0) {
-
+        if (!done) {
+            int val = 1;
+            int count = 0;
+            while (num % val != num) {
+                val *= 2;
+                count++;
+            }
+            pow = (int) (Math.pow(2, count-1));
+            done = true;
         } else {
-            System.out.print(num%2);
-            binary(num/2);
+            pow /= 2;
         }
+
+        if (pow != 0) {
+            if (num < pow) {
+                System.out.print(0);
+                binary(num);
+            } else {
+                System.out.print(1);
+                binary(num-pow);
+            }
+        }
+
+
 
     }
 
@@ -279,12 +302,11 @@ public class Recursion {
     public static int decimal(int num)
     {
         if (num == 0) {
-
+            return 0;
         } else {
             int add = (num % 10) * curr;
             curr *= 2;
-            System.out.print(add);
-            decimal(num/10);
+            return add + decimal(num/10);
         }
     }
 
@@ -302,17 +324,39 @@ public class Recursion {
     // #9 Find Logarithms - due to rounding, limit parameter to only positive int
     public static int logarithm(int log, int base)
     {
-        
+        if (log < base) {
+            return 0;
+        }
+        else {
+            return 1 + logarithm(log/base, base);
+        }
     }
 
     // #10 Find GCF of a and b using Euclid's Algorithm
     public static int gcf(int a, int b)
     {
+        if (a%b == 0) {
+            return b;
+        } else {
+            return gcf(b, a%b);
+        }
     }
 
     // #11 Find n terms of Fibonacci sequence
+    public static int a = 0;
+    public static int b = 1;
     public static int fibonacci(int n)
     {
+        if (n == 0) {
+            a = 0;
+            b = 1;
+            return 0;
+        } else {
+            int temp = b;
+            b = a+b;
+            a = temp;
+            return b + fibonacci(n-1);
+        }
     }
 
     // #12 Merge Sort
@@ -331,6 +375,8 @@ public class Recursion {
     // start and end are the array indexes that we will look through for the target.
     public static int recursiveBinarySearch(int[] arr, int target, int start, int end)
     {
+        return -1;
+
     }
 
     // #13 Print the Pascal Triangle for n rows
