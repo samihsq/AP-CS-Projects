@@ -343,25 +343,28 @@ public class Recursion {
     }
 
     // #11 Find n terms of Fibonacci sequence
-    public static int a = 0;
-    public static int b = 1;
-    public static int fibonacci(int n)
-    {
+    public static int fibonacci(int n) {
         if (n == 0) {
-            a = 0;
-            b = 1;
             return 0;
+
+        } else if (n == 1 || n == 2) {
+            return 1;
+
         } else {
-            int temp = b;
-            b = a+b;
-            a = temp;
-            return b + fibonacci(n-1);
+            return fibonacci(n-2) + fibonacci(n-1);
         }
     }
 
     // #12 Merge Sort
     public static void mergeSort(int[] arr, int from, int to, int[] temp)
     {
+        if (from < to)
+        {
+            int middle = (from + to) / 2;
+            mergeSort(arr, from, middle, temp);
+            mergeSort(arr, middle + 1, to, temp);
+            merge(arr, from, middle, to, temp);
+        }
     }
 
     // Merge two arrays - array index range is [from] to [to]
@@ -369,14 +372,72 @@ public class Recursion {
     // Need to copy temp to arr once the sorting is completed.
     public static void merge(int[] arr, int from, int mid, int to, int[] temp)
     {
+        int from1 = from;
+        int mid1 = mid + 1;
+        int from2 = from;
+
+        while (from1 <= mid && mid1 <= to)
+        {
+            if (arr[from1] < arr[mid1])
+            {
+                temp[from2] = arr[from1];
+                from1++;
+            }
+            else
+            {
+                temp[from2] = arr[mid1];
+                mid1++;
+            }
+            from2++;
+        }
+
+        while (from1 <= mid)
+        {
+            temp[from2] = arr[from1];
+            from1++;
+            from2++;
+        }
+
+        while (from2 <= to)
+        {
+            temp[from2] = arr[mid1];
+            mid1++;
+            from2++;
+        }
+
+        for (from2 = from; from2 <= to; from2++)
+        {
+            arr[from2] = temp[from2];
+        }
     }
 
     // #12 Binary search - return the index of the target
     // start and end are the array indexes that we will look through for the target.
     public static int recursiveBinarySearch(int[] arr, int target, int start, int end)
     {
-        return -1;
+        int middle = (start + end)/2;
 
+        // check middle element if it is the intended value
+        if (target == arr[middle]) {
+            return middle;
+        }
+
+        // check if there are no more values to search for
+        if(end < start){
+            return -1;
+        }
+
+        // if target is on left side, limit array to left side (recursive)
+        if (target < arr[middle]){
+            return recursiveBinarySearch(arr, target, start, middle - 1);
+        }
+
+        // if target is on right side, limit array to right side (recursive)
+        if (target > arr[middle]){
+            return recursiveBinarySearch(arr, target, middle + 1, end);
+        }
+
+        return -1;
     }
 
     // #13 Print the Pascal Triangle for n rows
@@ -392,9 +453,47 @@ public class Recursion {
      *                                    1 2 1
      */
 
-    public static void printPascalTriangle(int n)
+
+
+    public static void printPascalTriangle(int i)
     {
+        pascalHelper(i-1, i-1);
     }
+
+    public static void pascalHelper(int i, int max) {
+        if (i < 0) return;
+        pascalHelper(i - 1, max);
+        spacing(max - i);
+        calculateRow(i);
+        spacing(max - i);
+        System.out.println();
+    }
+
+    private static void spacing(int amt) {
+        for (int i = 0; i < amt; i++) {
+            System.out.print(" ");
+        }
+    }
+
+    private static int factorial(int n) {
+        if (n <= 1) {
+            return 1;
+        } else {
+            return n * factorial(n-1);
+        }
+    }
+
+    private static void calculateRow(int n) {
+        int val;
+        for (int j = 0; j < n+1; j++) {
+            val = (factorial(j) * factorial(n - j));
+            System.out.print(factorial(n) / val + " ");
+        }
+    }
+
+
+
+
 
 }
 

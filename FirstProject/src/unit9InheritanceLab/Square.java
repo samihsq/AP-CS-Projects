@@ -1,3 +1,4 @@
+package unit9InheritanceLab;
 
 /**
  * Square.java - Unit 9 Lab

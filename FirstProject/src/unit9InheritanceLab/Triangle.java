@@ -1,3 +1,4 @@
+package unit9InheritanceLab;
 
 /**
  * Triangle.java - Unit 9 Lab

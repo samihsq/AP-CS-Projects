@@ -1,3 +1,4 @@
+package unit9InheritanceLab;
 
 /**
  * Rectangle.java - Unit 9 Lab
