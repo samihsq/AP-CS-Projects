@@ -1,14 +1,11 @@
-//package unit10lab;
 
 /**
- * Recursion.java
+ * Recursion.java - Unit 10 Lab
  *
- * @author - K Chang
- * @since 05/2021
+ * @author - Samih Qureshi
+ * @author - Period 3
+ * @author - Id 10023090
  *
- * For Unit 10 recursion lab
- * Total 12 tasks.
- * The main method will call recursive methods to perform various tasks.
  */
 public class Recursion {
     public static void main(String[] args)
@@ -200,9 +197,11 @@ public class Recursion {
     public static int sumNumbers(int n)
     {
         if (n == 1) {
+            // base case, returns 1
             return 1;
         }
         else {
+            // returns current number and recursion with n-1
             return n + sumNumbers(n-1);
         }
     }
@@ -210,11 +209,14 @@ public class Recursion {
     // #2 Add all digits of a given number n
     public static int sumDigits(int n)
     {
+        // gets last digit using modulo
         int val = (n % 10);
         if (n / 10 == 0) {
+            // base case, return last digit if no more digits remaining
             return val;
         }
         else {
+            // recursion using unused numbers
             return val + sumDigits(n/10);
         }
     }
@@ -222,13 +224,17 @@ public class Recursion {
     // #3/#4 Reverse a given string
     public static String reverseString(String str)
     {
+
         if (str.length() <= 0) {
+            // return nothing if nothing in string
             return "";
         }
         String val = str.substring(str.length()-1);
         if (val.equals("")) {
+            // return nothing if string has no value
             return val;
         }
+        // recursion using previous unused values (taken using substring)
         return val + reverseString(str.substring(0,str.length()-1));
     }
 
@@ -248,6 +254,7 @@ public class Recursion {
     // Treat n as a string and utilize the reverseString method in #3
     public static String reverseDigits(int n)
     {
+        // treated n as a String, used the reverseString method
         return reverseString(Integer.toString(n));
     }
 
@@ -270,6 +277,7 @@ public class Recursion {
     static int pow;
     public static void binary(int num)
     {
+        // first if statement finds the closest power of 2 to a value, runs if first gothrough
         if (!done) {
             int val = 1;
             int count = 0;
@@ -280,14 +288,18 @@ public class Recursion {
             pow = (int) (Math.pow(2, count-1));
             done = true;
         } else {
+            // if not first gothrough, halve the value found
             pow /= 2;
         }
 
         if (pow != 0) {
+            // print 0 if num is less than power, meaning that the current place in binary is too small to hold the current number
             if (num < pow) {
                 System.out.print(0);
+                // then use recursion to go through further values
                 binary(num);
             } else {
+                //otherwise print 1, and use recursion, but reduce the number by the power value found (because the binary value is now takes up the decimal value)
                 System.out.print(1);
                 binary(num-pow);
             }
@@ -301,9 +313,12 @@ public class Recursion {
     static int curr = 1;
     public static int decimal(int num)
     {
+        // basis: go through each binary value and multiply it by the decimal equivalent of the space
         if (num == 0) {
+            // base case
             return 0;
         } else {
+            // goes left to right, as place goes up, multiplier doubles
             int add = (num % 10) * curr;
             curr *= 2;
             return add + decimal(num/10);
@@ -315,8 +330,10 @@ public class Recursion {
     public static int exponent(int base, int exp)
     {
         if (exp == 0) {
+            // base case
             return 1;
         } else {
+            // keep on multiplying the base until the exponent reaches the base case
             return base * exponent(base, exp-1);
         }
     }
@@ -325,9 +342,11 @@ public class Recursion {
     public static int logarithm(int log, int base)
     {
         if (log < base) {
+            // base case
             return 0;
         }
         else {
+            // reverse of exponent, keep dividing log by base, until the log value is less than the base
             return 1 + logarithm(log/base, base);
         }
     }
@@ -336,21 +355,27 @@ public class Recursion {
     public static int gcf(int a, int b)
     {
         if (a%b == 0) {
+            // base case
             return b;
         } else {
+            // recursion using Euclid's Algorithm
             return gcf(b, a%b);
         }
     }
 
     // #11 Find n terms of Fibonacci sequence
     public static int fibonacci(int n) {
+
         if (n == 0) {
+            // base case 1, first term is 0
             return 0;
 
         } else if (n == 1 || n == 2) {
+            // base case 2, 2nd and 3rd terms are 1
             return 1;
 
         } else {
+            // recursion by adding the 2 values preceding the current value
             return fibonacci(n-2) + fibonacci(n-1);
         }
     }
@@ -361,8 +386,10 @@ public class Recursion {
         if (from < to)
         {
             int middle = (from + to) / 2;
+            // keeps splitting array in half until size is minimum
             mergeSort(arr, from, middle, temp);
             mergeSort(arr, middle + 1, to, temp);
+            // once all split, merge process
             merge(arr, from, middle, to, temp);
         }
     }
@@ -376,6 +403,7 @@ public class Recursion {
         int mid1 = mid + 1;
         int from2 = from;
 
+        // combines both arrays using a temp array, values put in order
         while (from1 <= mid && mid1 <= to)
         {
             if (arr[from1] < arr[mid1])
@@ -461,8 +489,12 @@ public class Recursion {
     }
 
     public static void pascalHelper(int i, int max) {
-        if (i < 0) return;
+        if (i < 0) {
+            return;
+        }
+        // pascal helper run as many times as i states, recursion
         pascalHelper(i - 1, max);
+        // spacing used on left and right of the rows
         spacing(max - i);
         calculateRow(i);
         spacing(max - i);
@@ -470,7 +502,9 @@ public class Recursion {
     }
 
     private static void spacing(int amt) {
+        //simple spacing
         for (int i = 0; i < amt; i++) {
+
             System.out.print(" ");
         }
     }
@@ -479,6 +513,7 @@ public class Recursion {
         if (n <= 1) {
             return 1;
         } else {
+            // simple factorial recursion, multiply current value by value one smaller
             return n * factorial(n-1);
         }
     }
@@ -486,14 +521,11 @@ public class Recursion {
     private static void calculateRow(int n) {
         int val;
         for (int j = 0; j < n+1; j++) {
+            // calculates row values using algorithm: recursion with factorial method
             val = (factorial(j) * factorial(n - j));
             System.out.print(factorial(n) / val + " ");
         }
     }
-
-
-
-
 
 }
 
