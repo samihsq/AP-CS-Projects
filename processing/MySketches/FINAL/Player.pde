@@ -2,6 +2,7 @@ public class Player extends ASprite{
   boolean inPlace;
   PImage[] standLeft;
   PImage[] standRight;
+  int lives;
   public Player(PImage img, float scale){
     super(img, scale);
     direction = RIGHT_FACING;

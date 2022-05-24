@@ -16,23 +16,26 @@
  
 */
 
-final static float MOVE_SPEED = 4;
+final static float MOVE_SPEED = 7;
 final static float SPRITE_SCALE = 50.0/128;
 final static float SPRITE_SIZE = 50;
 final static float GRAVITY = .8;
 final static float JUMP_SPEED = 20; 
+final static float GROUND_LEVEL = 1475; 
+
 
 final static float RIGHT_MARGIN = 400;
 final static float LEFT_MARGIN = 300;
-final static float VERTICAL_MARGIN = 20;
+final static float VERTICAL_MARGIN = 200;
 
 
 //declare global variables
 Player player;
-PImage snow, crate, red_brick, brown_brick, coin, playerImage;
-ArrayList<Sprite> platforms;
-ArrayList<Sprite> coins; 
+PImage snow, crate, red_brick, brown_brick, coin, playerImage, spider;
+ArrayList<Sprite> platforms, coins;
+ArrayList<Enemy> enemies;
 int score;
+boolean isGameOver;
 
 float view_x;
 float view_y;
@@ -49,6 +52,7 @@ void setup(){
   
   platforms = new ArrayList<Sprite>();
   coins = new ArrayList<Sprite>();
+  enemies = new ArrayList<Enemy>();
 
   view_x = 0;
   view_y = 0;
@@ -58,12 +62,20 @@ void setup(){
   crate = loadImage("crate.png");
   snow = loadImage("snow.png");
   coin = loadImage("gold1.png");
+  
+  spider = loadImage("spider_walk_right1.png");
+
+  
   playerImage = loadImage("player_stand_right.png");
   player = new Player(playerImage, 0.8);
-  player.center_x = 100;
-  player.center_y = 100;
+  player.center_x = 200;
+  player.center_y = 1000;
+  
   createPlatforms("map.csv");
   score = 0;
+  player.lives = 5;
+  
+  isGameOver = false;
 }
 
 // modify and update them in draw().
@@ -73,28 +85,103 @@ void draw(){
   // call scroll here. Need to call scroll first!
   scroll();
   
+  displayAll();
+  
+  if(!isGameOver) {
+    updateAll();
+    collectCoins();
+    checkDeath();
+  }
+  
+  
+
+} 
+
+void displayAll() {
   player.display();
 
   
-  
-  resolvePlatformCollisions(player, platforms);
-  
- 
-  
-  for(Sprite s: platforms)
-    s.display();
-    
-     player.update();
-  player.updateAnimation();
-  
+  for(Sprite platform: platforms)
+    platform.display();
     
    for(Sprite c: coins) {
     c.display();
-    ((ASprite)c).updateAnimation();
-  }
+    }
   
+    for(Enemy e: enemies) {
+    e.display();
+    }
+  
+  
+  
+  textSize(32);
+  fill(255, 0, 0);
+  text("Coins: " + score, view_x+ 50, view_y+50);
+  text("Lives: " + player.lives, view_x+ 50, view_y+100);
+  
+  if(isGameOver) {
+    fill(0,0,255);
+    text("Game Over!", view_x + width/2 - 100, view_y + height/2);
+    if(player.lives <= 0) {
+       text("You lose!", view_x + width/2 - 100, view_y + height/2 + 50);
+    } else {
+       text("You win!", view_x + width/2 - 100, view_y + height/2 + 50);
+    }
+    text("Press Space to restart", view_x + width/2 - 100, view_y + height/2 + 100);
+  }
 
   
+}
+
+void updateAll() {
+  player.updateAnimation();
+  resolvePlatformCollisions(player, platforms);
+  
+      for(Enemy e: enemies) {
+
+        e.update();
+        e.updateAnimation();
+      }
+      
+      for(Sprite c: coins) {
+            ((ASprite)c).updateAnimation();
+      }
+
+      checkDeath();
+}
+
+void checkDeath() {
+  boolean collideEnemy = false;
+
+  for(Enemy e: enemies) {
+    if(checkCollision(player, e)) {
+      collideEnemy = true;
+      break;
+    } else {
+      collideEnemy = false;
+    }
+  }
+  boolean fallOffCliff = player.getBottom() > GROUND_LEVEL;
+  if(collideEnemy || fallOffCliff) {
+    player.lives--;
+    if(player.lives <= 0) {
+      player.lives = 0;
+      isGameOver = true;
+    } else {
+      
+      player.change_y = 0;
+            player.change_x = 0;
+
+      
+        player.center_x = 200;
+        player.setBottom(1000);
+      
+      
+    }
+  }
+}
+
+void collectCoins(){
   ArrayList<Sprite> collision_list = checkCollisionList(player, coins);
   if(collision_list.size() > 0){
     for(Sprite coin: collision_list){
@@ -103,15 +190,10 @@ void draw(){
     }
   }
   
-    
-  
-  // call textSize(size), fill(r, g, b) and text(str, x, y) to display score. 
-  textSize(32);
-  fill(255, 0, 0);
-  text("Coins: " + score, view_x+width-750, view_y+height-550);
-  
-
-} 
+  if(coins.size() == 0) {
+    isGameOver = true;
+  }
+}
 
 void scroll(){
   
@@ -245,25 +327,25 @@ void createPlatforms(String filename){
   for(int row = 0; row < lines.length; row++){
     String[] values = split(lines[row], ",");
     for(int col = 0; col < values.length; col++){
-      if(values[col].equals("1")){
+      if(values[col].equals("a")){
         Sprite s = new Sprite(red_brick, SPRITE_SCALE);
         s.center_x = SPRITE_SIZE/2 + col * SPRITE_SIZE;
         s.center_y = SPRITE_SIZE/2 + row * SPRITE_SIZE;
         platforms.add(s);
       }
-      else if(values[col].equals("2")){
+      else if(values[col].equals("b")){
         Sprite s = new Sprite(snow, SPRITE_SCALE);
         s.center_x = SPRITE_SIZE/2 + col * SPRITE_SIZE;
         s.center_y = SPRITE_SIZE/2 + row * SPRITE_SIZE;
         platforms.add(s);
       }
-      else if(values[col].equals("3")){
+      else if(values[col].equals("e")){
         Sprite s = new Sprite(brown_brick, SPRITE_SCALE);
         s.center_x = SPRITE_SIZE/2 + col * SPRITE_SIZE;
         s.center_y = SPRITE_SIZE/2 + row * SPRITE_SIZE;
         platforms.add(s);
       }
-      else if(values[col].equals("4")){
+      else if(values[col].equals("d")){
         Sprite s = new Sprite(crate, SPRITE_SCALE);
         s.center_x = SPRITE_SIZE/2 + col * SPRITE_SIZE;
         s.center_y = SPRITE_SIZE/2 + row * SPRITE_SIZE;
@@ -274,7 +356,24 @@ void createPlatforms(String filename){
         nCoin.center_x = SPRITE_SIZE/2 + col * SPRITE_SIZE;
         nCoin.center_y = SPRITE_SIZE/2 + row * SPRITE_SIZE;
         coins.add(nCoin);
+      } 
+      else if(values[col].equals("0")){
+        continue; // continue with for loop, i.e do nothing.
       }
+      else{
+        // use Processing int() method to convert a numeric string to an integer
+        // representing the walk length of the spider.
+        // for example int a = int("9"); means a = 9.
+        int lengthGap = int(values[col]);
+        float bLeft = col * SPRITE_SIZE;
+        float bRight = bLeft + lengthGap * SPRITE_SIZE;
+        Enemy enemy = new Enemy(spider, 50/72.0, bLeft, bRight);
+        enemy.center_x = SPRITE_SIZE/2 + col * SPRITE_SIZE;      // see cases above.
+        enemy.center_y = SPRITE_SIZE/2 + row * SPRITE_SIZE;
+        // add enemy to enemies arraylist.
+        
+        enemies.add(enemy);
+    }
     }
   }
 }
@@ -282,28 +381,33 @@ void createPlatforms(String filename){
 
 // called whenever a key is pressed.
 void keyPressed(){
-  if(keyCode == RIGHT){
+  if(key == 'd'){
     player.change_x = MOVE_SPEED;
   }
-  else if(keyCode == LEFT){
+  else if(key == 'a'){
     player.change_x = -MOVE_SPEED;
   }
   // add an else if and check if key pressed is 'a' and if sprite is on platforms
   // if true then give the sprite a negative change_y speed(use JUMP_SPEED)
   // defined above
-  else if(keyCode == UP && isOnPlatforms(player, platforms)){
+  else if(key == 'w' && isOnPlatforms(player, platforms)){
     player.change_y = -JUMP_SPEED;
       
+  } else if(isGameOver && key == ' ') {
+    setup();
   }
 
 }
 
 // called whenever a key is released.
 void keyReleased(){
-  if(keyCode == RIGHT){
+  if(key == 'd'){
     player.change_x = 0;
   }
-  else if(keyCode == LEFT){
+  else if(key == 'a'){
     player.change_x = 0;
+  } 
+  else if(key == 'w') {
+    player.change_y = 0;
   }
 }
